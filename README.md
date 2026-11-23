@@ -1,108 +1,111 @@
-# Flutter
+# ♻️ ECO NOVA — Smart Waste Management & IoT Monitoring App
 
-A modern Flutter-based mobile application utilizing the latest mobile development technologies and tools for building responsive cross-platform applications.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Flutter](https://img.shields.io/badge/Flutter-%5E3.38.4-02569B.svg?logo=flutter)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-3.x-0175C2.svg?logo=dart)](https://dart.dev)
+[![Hardware](https://img.shields.io/badge/Edge%20Hardware-Raspberry%20Pi%205-C51A4A.svg?logo=raspberry-pi)](https://www.raspberrypi.com/)
+
+**ECO NOVA** is an AI-powered automated waste-sorting and IoT monitoring system designed for hospitals, private clinics, and high-traffic facilities. This repository houses the **cross-platform mobile monitoring application** built with Flutter, enabling facility staff and administrators to track bin fill-levels in real time, monitor sorting analytics, and receive instant overflow alerts from ECO NOVA smart sorting units.
+
+---
+
+## 🌟 System & App Features
+
+- **Real-Time IoT Bin Telemetry:** Connects with ultrasonic fill-level sensors mounted inside ECO NOVA sorting compartments to display live capacity percentages.
+- **Automated Sorting Analytics:** Tracks categorized waste metrics (plastics, metals, paper, and medical/general waste) processed by the Raspberry Pi 5 computer vision pipeline.
+- **Instant Overflow & Maintenance Alerts:** Notifies facility staff before bins reach critical capacity to reduce biohazard exposure and optimize collection schedules.
+- **Responsive Cross-Platform UI:** Built with Flutter (`Sizer` & Material Design) supporting both Light and Dark themes for seamless operation across mobile and tablet devices.
+
+---
 
 ## 📋 Prerequisites
 
-- Flutter SDK (^3.38.4)
-- Dart SDK
-- Android Studio / VS Code with Flutter extensions
-- Android SDK / Xcode (for iOS development)
+- **Flutter SDK** (`^3.38.4`)
+- **Dart SDK**
+- **Android Studio / VS Code** with Flutter & Dart extensions
+- **Android SDK / Xcode** (for Android & iOS builds)
 
-## 🛠️ Installation
+---
 
-1. Install dependencies:
-```bash
-flutter pub get
-```
+## 🛠️ Installation & Setup
 
-2. Run the application:
-```bash
-flutter run
-```
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/zozmohamed19/econova.git](https://github.com/zozmohamed19/econova.git)
+   cd econova
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   flutter pub get
+   ```
+
+3. **Run the application:**
+   ```bash
+   flutter run
+   ```
+
+---
 
 ## 📁 Project Structure
 
-```
+```text
 flutter_app/
-├── android/            # Android-specific configuration
-├── ios/                # iOS-specific configuration
+├── android/               # Android-specific configuration
+├── ios/                   # iOS-specific configuration
 ├── lib/
-│   ├── core/           # Core utilities and services
-│   │   └── utils/      # Utility classes
-│   ├── presentation/   # UI screens and widgets
+│   ├── core/              # Core utilities, API services, and IoT data handlers
+│   │   └── utils/         # Helper & formatting classes
+│   ├── presentation/      # UI screens (Dashboards, Bin Status, Analytics)
 │   │   └── splash_screen/ # Splash screen implementation
-│   ├── routes/         # Application routing
-│   ├── theme/          # Theme configuration
-│   ├── widgets/        # Reusable UI components
-│   └── main.dart       # Application entry point
-├── assets/             # Static assets (images, fonts, etc.)
-├── pubspec.yaml        # Project dependencies and configuration
-└── README.md           # Project documentation
+│   ├── routes/            # Application routing configuration
+│   ├── theme/             # Light & Dark Material theme configuration
+│   ├── widgets/           # Reusable UI components & telemetry cards
+│   └── main.dart          # Application entry point
+├── assets/                # Static assets (icons, images, custom fonts)
+├── pubspec.yaml           # Project dependencies and configuration
+└── README.md              # Project documentation
 ```
 
-## 🧩 Adding Routes
+---
 
-To add new routes to the application, update the `lib/routes/app_routes.dart` file:
+## 🎨 Theming & Responsive Architecture
 
-```dart
-import 'package:flutter/material.dart';
-import 'package:package_name/presentation/home_screen/home_screen.dart';
+The application implements a unified theme system supporting automatic Light and Dark mode switching alongside responsive screen scaling:
 
-class AppRoutes {
-  static const String initial = '/';
-  static const String home = '/home';
+- **Theming (`lib/theme/`):** Custom `ColorScheme`, typography, button, card, and dialog themes tailored for high-contrast monitoring dashboards.
+- **Responsive Layout (`Sizer`):** Adaptive sizing (`50.w`, `20.h`) ensuring consistent rendering across handheld phones and facility control tablets.
 
-  static Map<String, WidgetBuilder> routes = {
-    initial: (context) => const SplashScreen(),
-    home: (context) => const HomeScreen(),
-    // Add more routes as needed
-  }
-}
-```
+---
 
-## 🎨 Theming
+## 📦 Production Build
 
-This project includes a comprehensive theming system with both light and dark themes:
-
-```dart
-// Access the current theme
-ThemeData theme = Theme.of(context);
-
-// Use theme colors
-Color primaryColor = theme.colorScheme.primary;
-```
-
-The theme configuration includes:
-- Color schemes for light and dark modes
-- Typography styles
-- Button themes
-- Input decoration themes
-- Card and dialog themes
-
-## 📱 Responsive Design
-
-The app is built with responsive design using the Sizer package:
-
-```dart
-// Example of responsive sizing
-Container(
-  width: 50.w, // 50% of screen width
-  height: 20.h, // 20% of screen height
-  child: Text('Responsive Container'),
-)
-```
-## 📦 Deployment
-
-Build the application for production:
+To build the release APK for Android deployment:
 
 ```bash
-
+flutter build apk --release
 ```
 
-## 🙏 Acknowledgments
-- Built with [Rocket.new](https://rocket.new)
-- Powered by [Flutter](https://flutter.dev) & [Dart](https://dart.dev)
-- Styled with Material Design
+---
 
-Built with ❤️ on Rocket.new
+## 🏆 Recognition & Milestones
+
+- **Finalist** — *Youth Leaders Foundation Competition* (Environment & Green Technology Track, 2026)
+- **Official Submission** — *3rd Edition Presidential African Youth in AI and Robotics Competition (2026)*
+
+---
+
+## 👥 Core Team (NOVA SONIC)
+
+Developed by **Team NOVA SONIC** — Faculty of Computers and Artificial Intelligence, Assiut National University:
+- **Ziad Mohamed** — Co-Founder & Software/AI Developer
+- **Joudy Ahmed Mahmoud** — Co-Founder
+- **Mohamed Bahaa El-Din Mohamed** — Co-Founder
+- **Rival Ashraf Abdel-Sattar** — Co-Founder
+
+---
+
+## 🙏 Acknowledgments & License
+
+- Built with [Flutter](https://flutter.dev) & [Dart](https://dart.dev) (bootstrapped via [Rocket.new](https://rocket.new))
+- Released as open-source under the **MIT License**.
