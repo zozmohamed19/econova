@@ -97,11 +97,7 @@ Container(
 Build the application for production:
 
 ```bash
-# For Android
-flutter build apk --release
 
-# For iOS
-flutter build ios --release
 ```
 
 ## 🙏 Acknowledgments
